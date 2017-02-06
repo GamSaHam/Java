@@ -49,6 +49,8 @@ class App
 
 /*
 
+// Cloneable 을 활용한 깊은 복사
+
 package javaStudy;
 
 
@@ -103,7 +105,10 @@ class Circle implements Cloneable
 		try
 		{
 			obj = (Circle)super.clone();
+			
 		}catch(CloneNotSupportedException e){}
+	
+		obj._p = new Point(obj._p.getX(),obj._p.getY());
 		
 		return obj;
 	}
@@ -125,12 +130,9 @@ class App
     	clone_circle._p.setX(30);
     	clone_circle._p.setY(40);
     	
-    	
+    	System.out.printf("x:%d,y:%d",circle._p.getX(),circle._p.getY());
     	System.out.printf("x:%d,y:%d",clone_circle._p.getX(),clone_circle._p.getY());
     	
-    	
-    	
-    	        
     }
 
 }
